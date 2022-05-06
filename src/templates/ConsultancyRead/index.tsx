@@ -40,6 +40,9 @@ const ConsultancyRead = ({ uuid, date, hour}: ConsultancyReadProps) => {
   console.log({service})
   useEffect(() => {
     const getService = async () => {
+      if(!uuid){
+        return
+      }
       const config: useRequestConfig = {
         method: 'GET',
         url: `/service/read/${uuid}`
