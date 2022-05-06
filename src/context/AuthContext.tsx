@@ -154,14 +154,19 @@ export function AuthProvider({ children }: AuthProviderProp) {
   async function logout() {
     const config: useRequestConfig = {
       method: 'POST',
-      url: '/auth/logout'
+      url: '/auth/logout',
+      sendToken: true
     }
 
-    await request(config)
-
+     const aa = await request(config)
+    console.log(aa)
     deleteToken()
     deleteUser()
+    setUser(null)
+    if(Router.pathname === '/'){
+      Router.reload()
 
+    }
     Router.push('/')
   }
 

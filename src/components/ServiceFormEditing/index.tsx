@@ -162,7 +162,7 @@ const ProviderForm = ({ setRegisteredService, registeredService, setServiceAndPr
       const response = await request(config)
       console.log('entrou aqui respo', response)
       if (response) {
-        toast.success('Consultoria atulizada com sucesso')
+        toast.success('Consultoria atualizada com sucesso')
       }
 
       let responseThumbnail = null

@@ -8,9 +8,11 @@ export type CalendarProps = {
   uuid?: string | string[] | undefined
   provider: number,
   service: ServiceConsultancyEditing
+  setTrigger: Function
+  trigger: boolean
 }
 
-function Calendar({ uuid, service, provider }: CalendarProps) {
+function Calendar({ uuid,setTrigger,trigger,   service, provider }: CalendarProps) {
   const [value, setValue] = useState(moment())
 
   return (
@@ -19,6 +21,8 @@ function Calendar({ uuid, service, provider }: CalendarProps) {
         value={value}
         onChange={setValue}
         uuid={uuid}
+        setTrigger={setTrigger}
+        trigger={trigger}
         service={service}
         provider={provider}
       />

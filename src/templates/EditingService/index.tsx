@@ -46,11 +46,11 @@ export class DateCalendar {
 const Provider = ({ uuid }: Uuid) => {
   const [service, setService] = useState<ServiceConsultancyEditing | null>(null)
   const [providerId, setProviderId] = useState<number>()
+  const [trigger, setTrigger] = useState(false)
 
   const { request } = useRequest()
   
   useEffect(() => {
-    if(uuid){
       const getService = async () => {
         const config: useRequestConfig = {
           method: 'GET',
@@ -72,9 +72,7 @@ const Provider = ({ uuid }: Uuid) => {
         setProviderId(responseWhithDate.provider.id)
       }
       getService()
-    }
-    
-  }, [])
+  }, [trigger])
 
   return (
 
@@ -82,7 +80,7 @@ const Provider = ({ uuid }: Uuid) => {
       <Menu />
       <S.Container>
         <ServiceForm service={service} />
-        <Calendar service={service} provider={providerId}/>
+        <Calendar setTrigger={setTrigger} trigger={trigger} service={service} provider={providerId}/>
       </S.Container>
         <ToastContainer
           position="top-right"

@@ -20,10 +20,7 @@ const CardSliderHome = ({ items, home} : CardSliderProps) => {
 
   const handleClick = (e: React.MouseEvent<HTMLElement>, item: CardProps) => {
     e.preventDefault()
-    console.log('id, do provedor', item.provider.ownerUser.id)
-    console.log('id, do user', user.user.id)
-    if (item?.provider.ownerUser.id === user?.user?.id) {
-      console.log('1111111111111111')
+    if (user?.user?.id && item?.provider.ownerUser?.id === user?.user?.id) {
       router.push(`/service/${item.uuid}`)
       return
     }

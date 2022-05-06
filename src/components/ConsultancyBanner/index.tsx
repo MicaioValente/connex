@@ -67,7 +67,7 @@ const ConsultancyBanner = ({
       const getFreeHours = async () => {
         const config: useRequestConfig = {
           method: 'GET',
-          url: `/schedule/getConsultancyPurchased/${user.id}/${service.id}`
+          url: `/schedule/getConsultancyPurchased/${user?.id}/${service.id}`
         }
         const response = await request(config)
         console.log(111111111, {response})

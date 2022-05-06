@@ -16,9 +16,11 @@ type Input = {
   provider: number
   selectedTimesDay: selectedTimesDay
   setSelectedTimesDay: Function
+  trigger: boolean
+  setTrigger: Function
 }
 
-export default function ModalContent({ open, day, setOpenModal, uuid, service, provider, selectedTimesDay, setSelectedTimesDay }: Input) {
+export default function ModalContent({ open, day, trigger,  setTrigger, setOpenModal, uuid, service, provider, selectedTimesDay, setSelectedTimesDay }: Input) {
 
   const { request } = useRequest()
 
@@ -97,7 +99,8 @@ export default function ModalContent({ open, day, setOpenModal, uuid, service, p
             </CloseBox>
             <Title>{`Selecionar hórario`}</Title>
             <Title>{`para o dia ${day?.format('DD/MM')}`}</Title>
-                <SaveHoursService day={day} selectedTimesDay={selectedTimesDay} setOpenModal={setOpenModal} service={service} provider={provider} />
+       
+                <SaveHoursService trigger={trigger}  setTrigger={setTrigger} day={day} selectedTimesDay={selectedTimesDay} setOpenModal={setOpenModal} service={service} provider={provider} />
           </Box>
         </Fade>
       </Modal>

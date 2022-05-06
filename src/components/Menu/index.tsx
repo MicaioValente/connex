@@ -19,7 +19,7 @@ const Menu = () => {
   const { user, logout } = useContext(AuthContext)
   const avatar = user?.profilePictureUrl
   const diferente = '/circulo-avatar.jpg'
-  console.log('user.id', user)
+  console.log('user?.id', user)
 
   useEffect(() => {
 

@@ -16,6 +16,8 @@ type Input = {
   onChange: Function
   uuid?: string | string[] | undefined
   service: ServiceConsultancyEditing
+  setTrigger: Function
+  trigger: boolean
   provider: number
 }
 
@@ -24,7 +26,7 @@ export type selectedTimesDay = {
   hours: number[]
 }
 
-export default function CalendarComponent({ value, onChange, uuid, service, provider}: Input) {
+export default function CalendarComponent({ value,setTrigger, trigger, onChange, uuid, service, provider}: Input) {
   const [formError, setFormError] = useState('')
   const [open, setOpen] = useState(false)
   const [selectedTimesDay, setSelectedTimesDay] = useState<selectedTimesDay | null>(null)
@@ -103,7 +105,9 @@ export default function CalendarComponent({ value, onChange, uuid, service, prov
       </S.Calendar>
       <Modal
         uuid={uuid}
+        setTrigger={setTrigger}
         open={open}
+        trigger={trigger}
         setSelectedTimesDay={setSelectedTimesDay}
         day={dayModal}
         selectedTimesDay={selectedTimesDay}

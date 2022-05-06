@@ -3,6 +3,7 @@ export const saveToken = (token: string) => {
 }
 
 export const getCurrentToken = () => {
+  console.log('token ', localStorage.getItem('token'))
   return localStorage.getItem('token')
 }
 
@@ -16,6 +17,7 @@ export const saveUser = (user: string) => {
 }
 
 export const deleteUser = () => {
+  console.log(localStorage.removeItem('user'))
   return localStorage.removeItem('user')
 }
 

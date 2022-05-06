@@ -31,7 +31,7 @@ const MyConsultanciesSold = () => {
       const getMyServices = async () => {
         const config: useRequestConfig = {
           method: 'GET',
-          url: `/schedule/getConsultanciesSold/${userLogged.user.id}`
+          url: `/schedule/getConsultanciesSold/${userLogged.user?.id}`
         }
         const response = await request(config)
         if(response.error){

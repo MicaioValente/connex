@@ -35,14 +35,17 @@ type Input = {
   service: ServiceConsultancyEditing, 
   provider: number,
   selectedTimesDay: selectedTimesDay
+  trigger: boolean
+  setTrigger: Function
 }
 
 
-const SaveHoursService = ({ day, setOpenModal, service, provider, selectedTimesDay }: Input) => {
+const SaveHoursService = ({ day, trigger, setOpenModal,  setTrigger ,service, provider, selectedTimesDay }: Input) => {
   const { request } = useRequest()
   const [tableLine, setTableLine] = useState([]);
   const { user } = useContext(AuthContext)
-
+  console.log({selectedTimesDay})
+  console.log(11111)
   useEffect(() => {
     
     userData.forEach(row => {
@@ -51,6 +54,7 @@ const SaveHoursService = ({ day, setOpenModal, service, provider, selectedTimesD
     )
 
     if (selectedTimesDay){
+      console.log({selectedTimesDay})
       selectedTimesDay.hours.forEach(hour => {
         userData.forEach(row => {
           if (row.id == hour) {
@@ -85,7 +89,7 @@ const SaveHoursService = ({ day, setOpenModal, service, provider, selectedTimesD
 
     const configSchedule: useRequestConfig = {
       method: 'POST',
-      url: `schedule/serviceHour/${service.id}/${provider}/${user.id}`,
+      url: `schedule/serviceHour/${service.id}/${provider}/${user?.id}`,
       sendToken: true,
       data: dataRequest
     }
@@ -93,6 +97,7 @@ const SaveHoursService = ({ day, setOpenModal, service, provider, selectedTimesD
     const response = await request(configSchedule)
     
     if (response){
+      setTrigger(!trigger)
       toast.success('Horas Salvas com sucesso');
     }
 
@@ -105,9 +110,8 @@ const SaveHoursService = ({ day, setOpenModal, service, provider, selectedTimesD
 
   const handleChange = (e) => {
     const { name, checked } = e.target;
-
     let tempUser = tableLine.map((user) =>
-      user.id === parseInt(name) ? { ...user, isChecked: checked } : user
+      user?.id === parseInt(name) ? { ...user, isChecked: checked } : user
     );
     setTableLine(tempUser);
   };
@@ -117,11 +121,11 @@ const SaveHoursService = ({ day, setOpenModal, service, provider, selectedTimesD
       <S.TableDiv>
         <S.Form >
           {tableLine.map((user, index) => (
-            <S.DivLine key={user.id}>
+            <S.DivLine key={user?.id}>
               <S.DivCheckBox>
                 <input
                   type="checkbox"
-                  name={user.id}
+                  name={user?.id}
                   className="form-check-input"
                   checked={user?.isChecked || false}
                   onChange={handleChange}

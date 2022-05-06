@@ -74,7 +74,7 @@ const SaveHoursService = ({ day, setOpenModal, service, providerId, selectedTime
     dataRequest.day = day.format('DDMMYYYY')
     const configSchedule: useRequestConfig = {
       method: 'POST',
-      url: `schedule/serviceHour/${service.id}/${providerId}/${user.id}`,
+      url: `schedule/serviceHour/${service.id}/${providerId}/${user?.id}`,
       sendToken: true,
       data: dataRequest
     }
@@ -95,7 +95,7 @@ const SaveHoursService = ({ day, setOpenModal, service, providerId, selectedTime
   const handleChange = (e) => {
     const { name, checked } = e.target;
     let tempUser = tableLine.map((user) =>
-      user.id === parseInt(name) ? { ...user, isChecked: checked } : user
+      user?.id === parseInt(name) ? { ...user, isChecked: checked } : user
     );
     setTableLine(tempUser);
   };
@@ -105,11 +105,11 @@ const SaveHoursService = ({ day, setOpenModal, service, providerId, selectedTime
       <S.TableDiv>
         <S.Form >
           {tableLine.map((user, index) => (
-            <S.DivLine key={user.id}>
+            <S.DivLine key={user?.id}>
               <S.DivCheckBox>
                 <input
                   type="checkbox"
-                  name={user.id}
+                  name={user?.id}
                   className="form-check-input"
                   checked={user?.isChecked || false}
                   onChange={handleChange}
