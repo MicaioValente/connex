@@ -43,6 +43,10 @@ const ConsultancyRead = ({ uuid, date, hour}: ConsultancyReadProps) => {
       if(!uuid){
         return
       }
+      if(!uuid){
+        return 
+      }
+      console.log(939939,uuid )
       const config: useRequestConfig = {
         method: 'GET',
         url: `/service/read/${uuid}`

@@ -21,13 +21,14 @@ type Input = {
   uuid?: string | string[] | undefined
   service: Service
   provider: number
+  size: string
 }
 
 export type selectedTimesDay = {
   date: string,
   hours: number[]
 }
-export default function CalendarComponent({ value, onChange, label, freeHours, registering, uuid, service, provider}: Input) {
+export default function CalendarComponent({ value, size, onChange, label, freeHours, registering, uuid, service, provider}: Input) {
   const [formError, setFormError] = useState('')
   const [open, setOpen] = useState(false)
   const [selectedTimesDay, setSelectedTimesDay] = useState<selectedTimesDay>()
@@ -80,7 +81,7 @@ export default function CalendarComponent({ value, onChange, label, freeHours, r
       <S.Calendar>
         <S.Label>{label}</S.Label>
         <Header value={value} setValue={onChange} />
-        <S.Body>
+        <S.Body style={{minHeight: size, height: size}}>
           <S.DayNames>
             {['D', 'S', 'T', 'Q', 'Q', 'S', 'S'].map((week, i) => (
               <S.Week key={i}>{week}</S.Week>

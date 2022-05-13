@@ -9,9 +9,9 @@ ${({ size }: SizeProps) => css`
   flex-direction: column;
   /* border: 2px solid black;
   border-radius: 20px; */
-  height: ${({ size }: SizeProps) => (size ? size : 'none')};
-  width: ${({ size }: SizeProps) => (size ? size : 'none')};
-  min-width: ${({ size }: SizeProps) => (size ? size : 'none')};
-
+  min-height: ${({ size }: SizeProps) => (size ? size : 'auto')};
+  /* height: ${({ size }: SizeProps) => (size ? size : 'auto')}; */
+  /* width: ${({ size }: SizeProps) => (size ? size : 'auto')}; */
+  min-width: ${({ size }: SizeProps) => (size ? size : 'auto')};
 `}
 `

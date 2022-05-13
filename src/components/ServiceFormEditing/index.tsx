@@ -178,7 +178,7 @@ const ProviderForm = ({ setRegisteredService, registeredService, setServiceAndPr
       }
 
       if (responseThumbnail?.error) {
-        toast.error('Deu erro mané, faça upload da sua Thumbnail novamente')
+        toast.error('Deu erro mané, faça upload da sua Foto de Capa da Consultoria novamente')
         return
       }
     }
@@ -271,7 +271,7 @@ const ProviderForm = ({ setRegisteredService, registeredService, setServiceAndPr
             onChange={(e) => setMaskPrice(currencyMask(e))}
             icon={<Money />}
           />
-          <S.LabelThumbnail>Thumbnail</S.LabelThumbnail>
+          <S.LabelThumbnail>Foto de Capa da Consultoria</S.LabelThumbnail>
           <S.Input>
             <S.Icon>
               <AccountCircle />
@@ -286,7 +286,7 @@ const ProviderForm = ({ setRegisteredService, registeredService, setServiceAndPr
             />
           </S.Input>
           <TextField
-            label="Url do vídeo"
+            label="Link de Vídeo do Youtube (Opcional)"
             labelFor="videoUrl"
             value={values?.videoUrl}
             placeholder="Insira a URL do seu vídeo"

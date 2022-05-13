@@ -51,6 +51,7 @@ const Provider = ({ uuid }: Uuid) => {
   const { request } = useRequest()
   
   useEffect(() => {
+   
       const getService = async () => {
         const config: useRequestConfig = {
           method: 'GET',

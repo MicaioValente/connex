@@ -22,7 +22,7 @@ const Banner = ({ box }: Banner) => {
           <S.BoxInfo>
             <h1>Tenha Consultorias com Especialistas!</h1>
             <p>
-              Aqui você pode ter uma consultoria personalizada alguns dos maiores especialistas do Brasil nas suas áreas.
+              Aqui você pode ter uma consultoria personalizada com alguns dos maiores especialistas do Brasil nas suas áreas.
             </p>
             {user?.user?.name !== undefined ? (
               null

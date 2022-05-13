@@ -11,7 +11,7 @@ const Footer = ({ bottom }: FooterProps) => {
   const user = useContext(AuthContext)
 
   const handleClick = () => {
-    window.open('https://api.whatsapp.com/send?phone=551199170-0482')
+    window.open('https://wa.me/5511991700482')
   }
   return (
     <S.Footer bottom={bottom}>
@@ -24,7 +24,7 @@ const Footer = ({ bottom }: FooterProps) => {
           <p>Somos uma plataforma que une pessoas que queiram compartilhar</p>
           <br />
           <p>
-            seus conhecimentos e serviços pessoas que queiram aprender e
+            seus conhecimentos e serviços à pessoas que queiram aprender e
             contata-los
           </p>
         </div>

@@ -33,6 +33,7 @@ function Calendar({ size, label, freeHours, registering, uuid, service, provider
         uuid={uuid}
         service={service}
         provider={provider}
+        size={size}
       />
     </SizeCalendar>
   )
