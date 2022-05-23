@@ -125,7 +125,7 @@ const Profile = () => {
               />
             </S.Input>
             <S.ContainerButton>
-              <Link href="/service" passHref>
+              <Link href={`https://api.whatsapp.com/send?phone=551199170-0482&text=Gostaria%20de%20fazer%20minha%20retirada,%20minha%20identificação:%20${user?.id}`} passHref>
                 <Button variant='blue'>Clique aqui para retirar seus fundos!</Button>
               </Link>
             </S.ContainerButton>
